@@ -1,20 +1,16 @@
 #!/usr/bin/python3
 from contact import Contact
 
-
 def create_contact(fname, lname, phone, email):
     new_contact = Contact(fname, lname, phone, email)
     return new_contact
 
-    # print("Hello world!")
-
-
-def save_contact(contact):
-    Contact.save_contact()
+def save_contacts(contact):
+    contact.save_contact()
 
 
 def del_contact(contact):
-    Contact.delete_contact()
+    contact.delete_contact()
 
 
 def find_contact(number):
@@ -60,52 +56,55 @@ def main():
             print("Email address ...")
             e_address = input()
 
-            # create and save new contact.
-            save_contact(create_contact(f_name, l_name, p_number, e_address))
+        # create and save new contact.
+
+            save_contacts(create_contact(f_name,l_name,p_number,e_address))
             print('\n')
             print(f"New Contact {f_name} {l_name} created")
             print('\n')
 
         elif short_code == 'dc':
-
             if display_contacts():
-                print("Here is a list of all your contacts")
-                print('\n')
-
+                print("Here is a list of all your contact")
+                print ('\n')
                 for contact in display_contacts():
-                    print(
-                        f"{contact.first_name} {contact.last_name} .....{contact.phone_number}")
-
+                    print(f"{contact.first_name}){contact.last_name}....{contact.phone_number}")
                     print('\n')
 
-            else:
-                print('\n')
-                print("You dont seem to have any contacts saved yet")
+                    
+            else: 
+                print ('\n')
+                print("you dont seem to have any contacts")
                 print('\n')
 
-        elif short_code == 'fc':
-            print("Enter the number you want to search for")
 
-            search_number = input()
+        elif short_code  == "fc":
+            print("Enter the number you want tosearch for")
+
+            search_number =input()
+
             if check_existing_contacts(search_number):
-                search_contact = find_contact(search_number)
-                print(
-                    f"{search_contact.first_name} {search_contact.last_name}")
-                print('-' * 20)
+                search_contact =find_contact(search_number) 
+                print (f"{search_contact.first_name}{search_contact.last_name}")
 
-                print(
-                    f"Phone number.......{search_contact.phone_number}")
-                print(
-                    f"Email address.......{search_contact.email}")
-            else:
+                print('-'*20)   
+                print(f"phone number......{search_contact.phone_number}")
+                print(f"Email address....{search_contact.email}")
+
+            else :
                 print("That contact does not exist")
 
         elif short_code == "ex":
-            print("Bye .......")
+            print("Bye....")
             break
-        else:
-            print("I really didn't get that. Please use the short codes")
 
+
+        else :
+            print("I really didnt get tat.please use the short code")
+
+
+
+     
 
 if __name__ == '__main__':
     main()

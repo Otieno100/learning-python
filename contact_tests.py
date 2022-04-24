@@ -62,10 +62,10 @@ class testclass (unittest.TestCase) :
     #     Contact.copy_email("08888")
     #     self.assertEqual(self.new_contact.email,pyperclip.paste())
 
-    def test_copy_email(self):
-        self.new_contact.save_contact()
-        Contact.copy_email("b@gmail.com")
-        self.assertEqual(self.new_contact.email,pyperclip.paste())
+    # def test_copy_email(self):
+    #     self.new_contact.save_contact()
+    #     Contact.copy_email("b@gmail.com")
+    #     self.assertEqual(self.new_contact.email,pyperclip.paste())
 
 
 
